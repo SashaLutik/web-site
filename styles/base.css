@@ -1,0 +1,113 @@
+@font-face {
+  font-family: "Montserrat";
+  src:
+    url("../assets/fonts/Montserrat-VariableFont_wght.woff2")
+      format("woff2-variations"),
+    url("../assets/fonts/Montserrat-VariableFont_wght.woff") format("woff");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("../assets/fonts/Roboto-VariableFont_wdth_wght.woff2")
+      format("woff2-variations"),
+    url("../assets/fonts/Roboto-VariableFont_wdth_wght.woff") format("woff");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  font-size: 100%;
+
+  /* отступы и зазоры */
+  --space-xs: 0.25rem; /*  4px */
+  --space-sm: 0.5rem; /*  8px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+
+  /* Цвета */
+  --color-text: #0a0a0a;
+  --color-accent: #dc3e33;
+  --color-secondary: #0a0a0a;
+  --color-primary: #fffaf4;
+
+  /* Размер контейнера */
+  --container-max: 75rem;
+  --container-pad: 1.25rem;
+}
+
+.container {
+  max-width: var(--container-max);
+  padding: 0 var(--container-pad);
+  margin: 0 auto;
+}
+
+body {
+  background: var(--color-primary);
+  font-size: 1rem;
+  color: var(--color-text);
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  font-family: "Montserrat";
+  font-size: clamp(1.75rem, 1.2rem + 2.5vw, 3rem);
+  line-height: 1.5;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+h2 {
+  font-family: "Montserrat";
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2rem);
+  line-height: 1.5;
+  font-weight: 700;
+  text-align: center;
+}
+h3 {
+  font-family: "Montserrat";
+  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.5rem);
+  line-height: 1.5;
+  font-weight: 700;
+}
+h4 {
+  font-family: "Roboto";
+  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  line-height: 1.15;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+p,
+a,
+input,
+button {
+  font-family: "Roboto";
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+button,
+input[type="checkbox"] {
+  background-color: inherit;
+  cursor: pointer;
+}
+
+input {
+  background-color: inherit;
+}
+
+.small-text,
+.form-label {
+  font-family: "Roboto";
+  font-size: 0.75rem;
+  line-height: 1.167;
+  font-weight: 400;
+  text-transform: uppercase;
+}
