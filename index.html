@@ -408,5 +408,39 @@
 
     <script src="./scripts/common.js"></script>
     <script src="./scripts/index.js"></script>
+    <script>
+      import {
+        onLCP,
+        onINP,
+        onCLS,
+        onFCP,
+        onTTFB,
+      } from "https://unpkg.com/web-vitals@5?module";
+
+      function send(metric) {
+        const body = JSON.stringify({
+          name: metric.name,
+          value: metric.value,
+          rating: metric.rating,
+          url: window.location.href,
+          timestamp: Date.now(),
+        });
+
+        const endpoint = "https://webhook.site/96255823-d349-4de3-988f-7405071dad57";
+
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(endpoint, body);
+          console.log("Metric sent via Beacon:", metric.name, metric.value);
+        } else {
+          console.log("sendBeacon not supported. Metric:", body);
+        }
+      }
+
+      onLCP(send);
+      onINP(send, { reportAllChanges: true });
+      onCLS(send);
+      onFCP(send);
+      onTTFB(send);
+    </script>
   </body>
 </html>
