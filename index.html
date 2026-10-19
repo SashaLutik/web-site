@@ -408,15 +408,8 @@
 
     <script src="./scripts/common.js"></script>
     <script src="./scripts/index.js"></script>
-    <script type="module">
-      import {
-        onLCP,
-        onINP,
-        onCLS,
-        onFCP,
-        onTTFB,
-      } from "https://unpkg.com/web-vitals@5?module";
-
+    <script src="https://unpkg.com/web-vitals@5/dist/web-vitals.iife.js"></script>
+    <script>
       function send(metric) {
         const body = JSON.stringify({
           name: metric.name,
@@ -426,7 +419,8 @@
           timestamp: Date.now(),
         });
 
-        const endpoint = "https://webhook.site/96255823-d349-4de3-988f-7405071dad57";
+        const endpoint =
+          "https://webhook.site/96255823-d349-4de3-988f-7405071dad57";
 
         if (navigator.sendBeacon) {
           navigator.sendBeacon(endpoint, body);
@@ -436,11 +430,11 @@
         }
       }
 
-      onLCP(send);
-      onINP(send, { reportAllChanges: true });
-      onCLS(send);
-      onFCP(send);
-      onTTFB(send);
+      webVitals.onLCP(send);
+      webVitals.onINP(send, { reportAllChanges: true });
+      webVitals.onCLS(send);
+      webVitals.onFCP(send);
+      webVitals.onTTFB(send);
     </script>
   </body>
 </html>
